@@ -1,27 +1,29 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+<template class="container">
+  <main>
+    <div class="row">
+      <div class="col-2">
+        <barra-lateral></barra-lateral>
+      </div>
+      <div class="col-10">
+      <formulario-vue></formulario-vue>
+    </div>
+    </div>
+  </main>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
-
+import BarraLateral from './components/BarraLateral.vue';
+import FormularioVue from './components/Formulario.vue';
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
+    BarraLateral,
+    FormularioVue,
   }
 });
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
