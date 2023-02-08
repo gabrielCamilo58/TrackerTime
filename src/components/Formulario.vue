@@ -53,6 +53,7 @@ export default defineComponent({
         stopInterval(): void {
             this.initialized = false;
            clearInterval(this.interval);
+           this.dataInterval = 0;
         }
     },
 })
