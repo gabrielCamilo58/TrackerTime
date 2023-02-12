@@ -3,7 +3,7 @@
         <div class="card-body">
         <div class="row mt-3">
             <div class="col-8" role="form" aria-label="formulario para criação de uma nova tarefa">
-                <input type="text"  class="form-control" placeholder="Qual tarefa voce deseja iniciar">
+                <input type="text" v-model="description" class="form-control" placeholder="Qual tarefa voce deseja iniciar">
             </div>
             <div class="col-4 d-flex space-between">
                 <section class="m-1">
@@ -31,6 +31,7 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
     name: 'FormularioVue',
+    emits: ['saveTask'],
     computed: {
         formatTime(): string {
             return new Date(this.dataInterval * 1000).toISOString().substr(11, 8)
@@ -41,6 +42,7 @@ export default defineComponent({
             dataInterval: 0,
             interval: 0,
             initialized: false,
+            description: '',
         }
     },
     methods: {
@@ -53,6 +55,7 @@ export default defineComponent({
         stopInterval(): void {
             this.initialized = false;
            clearInterval(this.interval);
+           this.$emit('saveTask', {time: this.dataInterval, description: this.description})
            this.dataInterval = 0;
         }
     },
