@@ -1,10 +1,10 @@
 <template>
-<main>
+<main  :class="{'black-mode': mode}">
     <div class="row">
         <div class="col-2">
-            <barra-lateral></barra-lateral>
+            <barra-lateral @changeBlackMode="blackMode"></barra-lateral>
         </div>
-        <div class="col-10">
+        <div class="col-10 content-right">
             <formulario-vue @save-task="saveTask"></formulario-vue>
             <list-component :task-index="task"></list-component>
         </div>
@@ -28,18 +28,35 @@ export default defineComponent({
     },
     data() {
         return {
-          task: [] as TaskInterface[]
+          task: [] as TaskInterface[],
+          mode: false
         }
     },
     methods: {
         saveTask(task: TaskInterface) {
             this.task.push(task);
             console.log(task)
-        }
+        },
+        blackMode(value: boolean){
+            this.mode = value;
+        },
     }
 });
 </script>
 
 <style>
 
+main {
+    --bg-primary: #fff;
+    --text-primary: #000:
+}
+
+main.black-mode {
+    --bg-primary: #2b2d42;
+    --text-primary: #ddd;
+}
+
+.content-right {
+    background-color: var(--bg-primary);
+}
 </style>

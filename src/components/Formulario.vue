@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="form-create" >
         <div class="card-body">
         <div class="row mt-3">
             <div class="col-8" role="form" aria-label="formulario para criação de uma nova tarefa">
@@ -61,3 +61,10 @@ export default defineComponent({
     },
 })
 </script>
+
+<style>
+.form-create {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+</style>
